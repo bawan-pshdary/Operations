@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr Bawan Pshdary | Operations Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+      --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+      --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+      --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+      --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+      --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+
+      --color-bg: #f7f6f2;
+      --color-surface: #fbfbf9;
+      --color-surface-2: #f3f0ec;
+      --color-border: #d4d1ca;
+      --color-text: #28251d;
+      --color-text-muted: #7a7974;
+      --color-text-faint: #bab9b4;
+      --color-primary: #01696f;
+      --color-primary-hover: #0c4e54;
+
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1c1b19;
+      --color-surface-2: #22211f;
+      --color-border: #393836;
+      --color-text: #cdccca;
+      --color-text-muted: #797876;
+      --color-text-faint: #5a5957;
+      --color-primary: #4f98a3;
+      --color-primary-hover: #227f8b;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: 'Work Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-text);
+      background: radial-gradient(circle at top left, #e9e4da 0, var(--color-bg) 40%, var(--color-bg) 100%);
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-4) var(--space-16);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+
+    .brand { display: flex; align-items: center; gap: var(--space-3); }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-lg);
+      background: conic-gradient(from 200deg, #01696f, #0f3638, #e6e4df, #01696f);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .logo svg { width: 26px; height: 26px; color: #f7f6f2; }
+
+    .brand-text small {
+      display: block;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--color-text-muted);
+    }
+
+    .brand-text h1 {
+      font-family: 'Instrument Serif', 'Georgia', serif;
+      font-size: var(--text-xl);
+      letter-spacing: 0.04em;
+    }
+
+    nav { display: flex; align-items: center; gap: var(--space-3); }
+
+    nav a {
+      font-size: var(--text-sm);
+      text-decoration: none;
+      color: var(--color-text-muted);
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--radius-full);
+    }
+
+    nav a:hover { background: var(--color-surface-2); color: var(--color-text); }
+
+    .primary-cta {
+      background: var(--color-primary);
+      color: #f7f6f2;
+      border-radius: var(--radius-full);
+      padding: 0.5rem 1.1rem;
+      font-size: var(--text-sm);
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .primary-cta:hover { background: var(--color-primary-hover); }
+
+    .theme-toggle {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-surface);
+      cursor: pointer;
+    }
+
+    main {
+      margin-top: var(--space-8);
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: var(--space-8);
+    }
+
+    @media (max-width: 800px) {
+      main { grid-template-columns: minmax(0, 1fr); }
+      header { flex-direction: column; align-items: flex-start; }
+      nav { align-self: stretch; justify-content: space-between; flex-wrap: wrap; row-gap: var(--space-2); }
+    }
+
+    .hero-eyebrow {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-2);
+    }
+
+    .hero-title {
+      font-family: 'Instrument Serif', 'Georgia', serif;
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-3);
+    }
+
+    .hero-highlight { color: var(--color-primary); }
+
+    .hero-summary {
+      color: var(--color-text-muted);
+      max-width: 48ch;
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-meta { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-6); }
+
+    .meta-pill {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+
+    .secondary-link {
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .secondary-link span.icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    aside {
+      background: rgba(251,251,249,0.9);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .contact-list { list-style: none; margin-bottom: var(--space-4); }
+    .contact-list li { font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 0.35rem; }
+    .contact-list strong { color: var(--color-text); }
+
+    .tag-grid { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+    .tag {
+      font-size: var(--text-xs);
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-full);
+      background: var(--color-surface-2);
+      color: var(--color-text-muted);
+    }
+
+    section { margin-top: var(--space-12); }
+
+    section h2 {
+      font-size: var(--text-lg);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-3);
+    }
+
+    .pill-heading span {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-full);
+      background: var(--color-surface-2);
+      font-size: var(--text-xs);
+      margin-left: 0.5rem;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: var(--space-8);
+    }
+
+    @media (max-width: 900px) { .two-column { grid-template-columns: minmax(0, 1fr); } }
+
+    .experience-timeline {
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      padding: var(--space-4);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .role {
+      padding-block: var(--space-3);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .role:last-child { border-bottom: none; }
+
+    .role-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .role-title { font-weight: 600; }
+    .role-org { color: var(--color-text-muted); font-size: var(--text-sm); }
+    .role-meta { font-size: var(--text-xs); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.16em; }
+
+    .role ul { margin-top: 0.4rem; padding-left: 1.1rem; }
+    .role li { font-size: var(--text-sm); margin-bottom: 0.25rem; }
+
+    .strength-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-3);
+    }
+
+    .strength-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      padding: var(--space-3);
+      border: 1px solid var(--color-border);
+      font-size: var(--text-sm);
+    }
+
+    .pill-label {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--color-text-muted);
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+
+    .education-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      padding: var(--space-3);
+      border: 1px solid var(--color-border);
+      font-size: var(--text-sm);
+    }
+
+    footer {
+      margin-top: var(--space-12);
+      padding-top: var(--space-6);
+      border-top: 1px dashed var(--color-border);
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-3);
+      align-items: center;
+    }
+
+    .cv-snippet {
+      margin-top: var(--space-3);
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      white-space: pre-line;
+      max-height: 120px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-label="BP monogram logo">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M11 21V11h4.5a3 3 0 0 1 0 6H11m4.2 0L20 21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <small>Operations Leader</small>
+          <h1>Dr Bawan Pshdary</h1>
+        </div>
+      </div>
+      <nav>
+        <a href="#experience">Experience</a>
+        <a href="#strengths">Strengths</a>
+        <a href="#education">Education</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle colour theme" data-theme-toggle>☀️</button>
+        <a href="#contact" class="primary-cta">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section aria-labelledby="hero-heading">
+        <div class="hero-eyebrow">Head of operations & systems</div>
+        <h2 id="hero-heading" class="hero-title">
+          Building calm, scalable operating systems for <span class="hero-highlight">ambitious organisations</span>.
+        </h2>
+        <p class="hero-summary">
+          Hands-on operations leader with experience turning strategy into measurable delivery across education, ecommerce, publishing, and multi-site organisations.
+          Known for creating structure in ambiguity, building cross-functional accountability, and making the numbers visible.
+        </p>
+        <div class="hero-meta">
+          <div class="meta-pill">London-based & open to onsite roles</div>
+          <div class="meta-pill">Education, tech-enabled services, multi-site operations</div>
+        </div>
+        <div class="hero-actions">
+          <a class="primary-cta" href="#experience">View operating track record</a>
+          <a class="secondary-link" href="#contact">
+            <span class="icon">↗</span>
+            Request full CV
+          </a>
+        </div>
+      </section>
+
+      <aside id="contact" aria-label="Contact & quick facts">
+        <h2 style="font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: var(--space-2); color: var(--color-text-muted);">Contact</h2>
+        <ul class="contact-list">
+          <li><strong>Location:</strong> London, UK</li>
+          <li><strong>Email:</strong> <a href="mailto:bawan@pshdary.com">bawan@pshdary.com</a></li>
+          <li><strong>Phone:</strong> 07399 583065</li>
+          <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/bawan-pshdary" target="_blank" rel="noopener noreferrer">in/bawan-pshdary</a></li>
+        </ul>
+        <span class="pill-label">Immediate context</span>
+        <p style="font-size: var(--text-sm); color: var(--color-text-muted);">
+          British citizen, authorised to work in the UK, no visa sponsorship required. Comfortable in fast-moving startup environments.
+        </p>
+        <div class="tag-grid">
+          <span class="tag">Head of Operations</span>
+          <span class="tag">Startup operations</span>
+          <span class="tag">Systems & automation</span>
+          <span class="tag">Cross-functional delivery</span>
+        </div>
+      </aside>
+    </main>
+
+    <section id="experience" class="two-column">
+      <div>
+        <h2 class="pill-heading">Recent operating track record<span>Education, ecommerce & multi-site delivery</span></h2>
+        <div class="experience-timeline">
+          <article class="role">
+            <div class="role-header">
+              <div>
+                <div class="role-title">Head of Operations &amp; Growth</div>
+                <div class="role-org">British Grammar School / Step Up Edu — London &amp; Erbil</div>
+              </div>
+              <div class="role-meta">2024–Present · Education &amp; K-12</div>
+            </div>
+            <ul>
+              <li>Built operational systems for admissions, reporting, staffing, procurement, and leadership accountability.</li>
+              <li>Supported student growth from approximately 85 to a projected 400 through structured operational and recruitment workflows.</li>
+              <li>Led Google Workspace for Education rollout for over 600 users, strengthening digital infrastructure and resilience.</li>
+              <li>Managed vendor relationships with Oxford University Press, OxfordAQA, and technology partners.</li>
+            </ul>
+          </article>
+
+          <article class="role">
+            <div class="role-header">
+              <div>
+                <div class="role-title">Operations &amp; Systems Lead</div>
+                <div class="role-org">JDS DIY LTD — United Kingdom</div>
+              </div>
+              <div class="role-meta">2021–2024 · Ecommerce &amp; warehousing</div>
+            </div>
+            <ul>
+              <li>Led operational workflows across ecommerce, warehousing, fulfilment, and supplier coordination.</li>
+              <li>Supported a multi-channel retail operation with approximately 3,500 daily item sales.</li>
+              <li>Worked with developers on bespoke ecommerce systems, APIs, reporting tools, and operational dashboards.</li>
+              <li>Improved stock visibility, operational reporting, and cross-team coordination.</li>
+            </ul>
+          </article>
+
+          <article class="role">
+            <div class="role-header">
+              <div>
+                <div class="role-title">Portfolio Operations &amp; Product Development Lead</div>
+                <div class="role-org">Stirling Education Fund — UK / Luxembourg / International</div>
+              </div>
+              <div class="role-meta">2017–2020 · Global education portfolio</div>
+            </div>
+            <ul>
+              <li>Supported operational delivery across a portfolio of 54 schools and 2 universities.</li>
+              <li>Translated strategic objectives into operational plans, reporting structures, and delivery workstreams.</li>
+              <li>Supervised technology and digital learning platform delivery involving approximately 40 developers.</li>
+              <li>Worked across product development, partnerships, systems implementation, and operational scaling.</li>
+            </ul>
+          </article>
+
+          <article class="role">
+            <div class="role-header">
+              <div>
+                <div class="role-title">Operations &amp; Publishing Coordinator</div>
+                <div class="role-org">E&amp;H Global Ltd — London, UK</div>
+              </div>
+              <div class="role-meta">2015–2017 · Publishing &amp; operations</div>
+            </div>
+            <ul>
+              <li>Coordinated publishing operations, supplier communication, and project delivery timelines.</li>
+              <li>Supported procurement, invoicing workflows, and operational reporting.</li>
+              <li>Improved workflow visibility, delivery tracking, and internal operational structure.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div>
+        <h2 id="strengths" class="pill-heading">How I operate<span>Systems, people & measurable delivery</span></h2>
+        <div class="strength-grid">
+          <div class="strength-card">
+            <span class="pill-label">Operating rhythm</span>
+            Company operating cadence, KPIs, dashboards, and reporting structures that keep leadership focused on the right numbers.
+          </div>
+          <div class="strength-card">
+            <span class="pill-label">Startup execution</span>
+            Comfortable in ambiguity; quickly builds structure, workflow clarity, and cross-functional accountability.
+          </div>
+          <div class="strength-card">
+            <span class="pill-label">People & recruitment</span>
+            Recruitment operations, onboarding, workforce planning, and the systems that support high-quality hiring.
+          </div>
+          <div class="strength-card">
+            <span class="pill-label">Systems & automation</span>
+            Implementation and optimisation of digital infrastructure, process automation, and workflow tooling.
+          </div>
+        </div>
+
+        <section id="education" style="margin-top: var(--space-8);">
+          <h2 class="pill-heading">Academic background<span>Clinical neuroscience & medicine</span></h2>
+          <div class="education-card">
+            <p><strong>MSc Clinical Neuroscience</strong> — University College London, Queen Square Institute of Neurology</p>
+            <p><strong>MBChB Medicine</strong> — University of Sulaymaniyah School of Medicine</p>
+            <p style="margin-top: 0.75rem; color: var(--color-text-muted); font-size: var(--text-sm);">
+              Scientific training and clinical experience underpin a structured, data-informed, and people-centred approach to operations.
+            </p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section style="margin-top: var(--space-12);">
+      <h2 class="pill-heading">Tools & digital infrastructure<span>What I am comfortable operating with</span></h2>
+      <p style="max-width: 60ch; color: var(--color-text-muted); margin-bottom: var(--space-3);">
+        I design and run operating systems using modern tooling across collaboration, project management, admissions, ecommerce, and reporting.
+      </p>
+      <div class="tag-grid">
+        <span class="tag">Google Workspace</span>
+        <span class="tag">Microsoft 365</span>
+        <span class="tag">Jira</span>
+        <span class="tag">Asana</span>
+        <span class="tag">ClickUp</span>
+        <span class="tag">Zapier</span>
+        <span class="tag">CRM & admissions workflows</span>
+        <span class="tag">Ecommerce & WMS</span>
+        <span class="tag">Reporting dashboards</span>
+        <span class="tag">Vendor management</span>
+        <span class="tag">Process mapping</span>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <strong>Prefer a traditional CV?</strong> I am happy to share a detailed version on request.
+        <div class="cv-snippet">Dr Bawan Pshdary — Head of Operations | Startup Operations | Systems, People & Execution
+Hands-on operations leader with experience across education, technology-enabled services, ecommerce, publishing, and multi-site organisations. Known for building structure in ambiguity, aligning teams around clear operating rhythms, and making performance visible through data, systems, and disciplined execution.</div>
+      </div>
+      <div>
+        Updated: 2026 · Portfolio site designed for fast review by hiring managers.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const root = document.documentElement;
+      let mode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', mode);
+      if (toggle) {
+        const renderIcon = () => { toggle.textContent = mode === 'dark' ? '🌙' : '☀️'; };
+        renderIcon();
+        toggle.addEventListener('click', () => {
+          mode = mode === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', mode);
+          renderIcon();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
